@@ -9,4 +9,6 @@ The Power BI getting started sample shows you how to
 - Add rows to a dataset
 - How to add Active Directory Authentication Library
 
+See [How to run the client app sample](https://msdn.microsoft.com/en-US/library/mt186159.aspx)
+
 See [Overview of Power BI REST API](https://msdn.microsoft.com/en-US/library/dn877544(Azure.100).aspx) on MSDN.
