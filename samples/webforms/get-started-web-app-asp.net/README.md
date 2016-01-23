@@ -11,4 +11,6 @@ The Power BI web sample shows you how to
 	- Get the authentication code sent from Azure AD, and get the authentication token from the authentication code.
 	- call a Power BI REST operation using an Azure SD access token.
 
+To learn how to run the sample, see [Power BI web app sample](https://msdn.microsoft.com/en-us/library/mt186158.aspx).
+
 See complete [ASP.NET web app sample](https://msdn.microsoft.com/en-US/library/mt143610.aspx) article on MSDN.
