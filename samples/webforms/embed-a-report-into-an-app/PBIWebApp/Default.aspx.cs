@@ -75,13 +75,13 @@ namespace PBIWebApp
         {
             string responseContent = string.Empty;
 
-            //Configure datasets request
+            //Configure reports request
             System.Net.WebRequest request = System.Net.WebRequest.Create(String.Format("{0}reports", baseUri)) as System.Net.HttpWebRequest;
             request.Method = "GET";
             request.ContentLength = 0;
             request.Headers.Add("Authorization", String.Format("Bearer {0}", authResult.AccessToken));
 
-            //Get datasets response from request.GetResponse()
+            //Get reports response from request.GetResponse()
             using (var response = request.GetResponse() as System.Net.HttpWebResponse)
             {
                 //Get reader from response stream
@@ -93,7 +93,7 @@ namespace PBIWebApp
                     PBIReports PBIReports = JsonConvert.DeserializeObject<PBIReports>(responseContent);
 
                     tb_reportsResult.Text = string.Empty;
-                    //Get each Dataset from 
+                    //Get each report 
                     foreach (PBIReport rpt in PBIReports.value)
                     {
                         tb_reportsResult.Text += String.Format("{0}\t{1}\t{2}\n", rpt.id, rpt.name, rpt.embedUrl);

@@ -78,13 +78,13 @@ namespace PBIWebApp
         {
             string responseContent = string.Empty;
 
-            //Configure datasets request
+            //Configure groups request
             System.Net.WebRequest request = System.Net.WebRequest.Create(String.Format("{0}groups", baseUri)) as System.Net.HttpWebRequest;
             request.Method = "GET";
             request.ContentLength = 0;
             request.Headers.Add("Authorization", String.Format("Bearer {0}", authResult.AccessToken));
 
-            //Get datasets response from request.GetResponse()
+            //Get groups response from request.GetResponse()
             using (var response = request.GetResponse() as System.Net.HttpWebResponse)
             {
                 //Get reader from response stream
@@ -96,7 +96,7 @@ namespace PBIWebApp
                     PBIGroups PBIGroups = JsonConvert.DeserializeObject<PBIGroups>(responseContent);
 
                     tb_GroupsResults.Text = string.Empty;
-                    //Get each Dataset from 
+                    //Get each Group 
                     foreach (PBIGroup grp in PBIGroups.value)
                     {
                         tb_GroupsResults.Text += String.Format("{0}\t{1}\n", grp.id, grp.name);
@@ -141,13 +141,13 @@ namespace PBIWebApp
         {
             string responseContent = string.Empty;
 
-            //Configure datasets request
+            //Configure dashboard request
             System.Net.WebRequest request = System.Net.WebRequest.Create(String.Format("{0}dashboards", baseUri)) as System.Net.HttpWebRequest;
             request.Method = "GET";
             request.ContentLength = 0;
             request.Headers.Add("Authorization", String.Format("Bearer {0}", authResult.AccessToken));
 
-            //Get datasets response from request.GetResponse()
+            //Get dashboards response from request.GetResponse()
             using (var response = request.GetResponse() as System.Net.HttpWebResponse)
             {
                 //Get reader from response stream
@@ -159,7 +159,7 @@ namespace PBIWebApp
                     PBIDashboards PBIDashboards = JsonConvert.DeserializeObject<PBIDashboards>(responseContent);
 
                     tb_dashboardsResult.Text = string.Empty;
-                    //Get each Dataset from 
+                    //Get each dashboard 
                     foreach (PBIDashboard db in PBIDashboards.value)
                     {
                         tb_dashboardsResult.Text += String.Format("{0}\t{1}\n", db.id, db.displayName);
@@ -182,13 +182,13 @@ namespace PBIWebApp
 
             dashboardId = inDashboardID.Text;
 
-            //Configure datasets request
+            //Configure tiles request
             System.Net.WebRequest request = System.Net.WebRequest.Create(String.Format("{0}Dashboards/{1}/Tiles", baseUri, dashboardId)) as System.Net.HttpWebRequest;
             request.Method = "GET";
             request.ContentLength = 0;
             request.Headers.Add("Authorization", String.Format("Bearer {0}", authResult.AccessToken));
 
-            //Get datasets response from request.GetResponse()
+            //Get tiles response from request.GetResponse()
             using (var response = request.GetResponse() as System.Net.HttpWebResponse)
             {
                 //Get reader from response stream
@@ -200,7 +200,7 @@ namespace PBIWebApp
                     PBITiles PBITiles = JsonConvert.DeserializeObject<PBITiles>(responseContent);
 
                     tb_tilesResult.Text = string.Empty;
-                    //Get each Dataset from 
+                    //Get each tile from 
                     foreach (PBITile tile in PBITiles.value)
                     {
                         tb_tilesResult.Text += String.Format("{0}\t{1}\t{2}\n", tile.id, tile.title, tile.embedUrl);
